@@ -1,0 +1,71 @@
+CREATE TABLE inventory_products (
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(100),
+    category VARCHAR(50),
+    price DECIMAL(10,2)
+);
+
+INSERT INTO inventory_products VALUES
+(1, 'Gaming Keyboard', 'Electronics', 2599.00),
+(2, 'Noise Cancelling Headphones', 'Electronics', 4999.00),
+(3, 'Running Shoes', 'Sportswear', 2999.00),
+(4, 'Leather Wallet', 'Accessories', 899.00),
+(5, 'Coffee Maker', 'Home Appliances', 3499.00),
+(6, 'Office Chair', 'Furniture', 7499.00),
+(7, 'Fitness Tracker', 'Electronics', 5599.00),
+(8, 'Yoga Block Set', 'Sportswear', 799.00),
+(9, 'LED Desk Lamp', 'Home Appliances', 1599.00),
+(10, 'Smartphone Stand', 'Accessories', 499.00);
+
+
+
+
+CREATE TABLE retail_stores (
+    store_id INT PRIMARY KEY,
+    store_name VARCHAR(100),
+    location VARCHAR(100)
+);
+
+INSERT INTO retail_stores VALUES
+(1, 'UrbanTech Electronics', 'Bangalore'),
+(2, 'City Sports Zone', 'Delhi'),
+(3, 'Home Essentials Mart', 'Mumbai'),
+(4, 'StyleHub Accessories', 'Chennai'),
+(5, 'Comfort Living Store', 'Hyderabad');
+
+
+
+CREATE TABLE sales_transactions (
+    transaction_id INT PRIMARY KEY,
+    customer_id INT,
+    product_id INT,
+    store_id INT,
+    quantity INT,
+    transaction_date DATE,
+    FOREIGN KEY (product_id) REFERENCES inventory_products(product_id),
+    FOREIGN KEY (store_id) REFERENCES retail_stores(store_id)
+);
+
+INSERT INTO sales_transactions VALUES
+(1, 201, 3, 2, 2, '2025-01-15'),
+(2, 202, 7, 1, 1, '2025-02-03'),
+(3, 203, 4, 4, 3, '2025-03-22'),
+(4, 204, 6, 5, 1, '2025-02-27'),
+(5, 205, 2, 1, 2, '2025-04-10'),
+(6, 206, 5, 3, 1, '2025-03-11'),
+(7, 207, 9, 3, 2, '2025-01-05'),
+(8, 208, 8, 2, 4, '2025-03-16'),
+(9, 209, 1, 1, 1, '2025-01-28'),
+(10, 210, 10, 4, 2, '2025-02-09'),
+(11, 211, 5, 3, 1, '2025-04-02'),
+(12, 212, 3, 2, 3, '2025-02-14'),
+(13, 213, 4, 4, 1, '2025-03-05'),
+(14, 214, 6, 5, 2, '2025-04-18'),
+(15, 215, 8, 2, 3, '2025-03-30'),
+(16, 216, 9, 3, 2, '2025-01-21'),
+(17, 217, 1, 1, 4, '2025-02-25'),
+(18, 218, 10, 4, 3, '2025-03-12'),
+(19, 219, 2, 1, 5, '2025-04-07'),
+(20, 220, 7, 1, 2, '2025-03-09');
+
+
