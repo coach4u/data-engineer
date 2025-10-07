@@ -53,7 +53,7 @@ dbutils.fs.mount(
     source="wasbs://silver@storacct201.blob.core.windows.net/",
     mount_point="/mnt/silver101",
     extra_configs={
-        "fs.azure.sas.silver.storacct201.blob.core.windows.net": "sv=2024-11-04&ss=bfqt&srt=sco&sp=rwdlacupyx&se=2025-10-06T21:37:05Z&st=2025-10-06T13:22:05Z&spr=https&sig=GL91H2mqgLkg53URpnxUMKJDhUWo7GyOKAOUNCB6y8s%3D"
+        "fs.azure.sas.silver.storacct201.blob.core.windows.net": "sas token"
     
     }
 )
